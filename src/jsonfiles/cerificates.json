@@ -1,0 +1,23 @@
+[
+	{
+		"img":"./certificates/dsa.png",
+		"skill":"Data Structures & Algorithum"
+	},
+	{
+		"img":"./certificates/javascript.png",
+		"skill":"JAVASCRIPT"
+	},
+	{
+		"img":"./certificates/reactjs.png",
+		"skill":"React js"
+	},
+	{
+		"img":"./certificates/github.png",
+		"skill":"Github"
+	},
+	{
+		"img":"./certificates/webdevelopment.png",
+		"skill":"Web Development"
+	}
+	
+]

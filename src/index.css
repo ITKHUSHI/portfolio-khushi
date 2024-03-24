@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+ *{
+  margin: 0%;
+  padding: 0%;
+  border: none;
+}
+body{
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+} 
+
+
+
+
+/* Apply animation to paragraphs */
+
+
+
+@keyframes pulse {
+  0% {
+    background-color: #001F3F;
+  }
+  100% {
+    background-color: #FF4136;
+  }
+}
+.bgChange-animation {
+  animation: pulse 5s infinite;
+}
+.animation-rotate {
+  animation: rotate 5s linear infinite;
+}
+
+
+@keyframes rotate{
+  0%{
+    transform: rotate(0deg);
+
+  }
+  100% {
+ transform: rotate(360deg);
+  }
+}
+@layer utilities {
+  .border-radius-custom {
+    border-radius: 30% 70% 67% 33% / 30% 30% 70% 70%;
+    
+  }
+}
+.slkilCards-animate{
+  animation: skillCard 1s linear ;
+
+}
+
+@keyframes skillCard{
+  0%{
+    opacity: 0;
+    transform: rotateY(0deg);
+  }
+  100%{
+    opacity: 1;
+    transform: rotateY(360deg);
+  }
+}
+
+
