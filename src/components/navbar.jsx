@@ -10,8 +10,8 @@ const Navbar = () => {
 	  setIsMenuOpen(!isMenuOpen);
 	};
   return (
-    <nav className="  bg-gradient-to-tr from-black  to-orange-500 shadow-orange-400  border-none   p-2">
-      <div className="flex items-center justify-between">
+    <nav className=" bg-black   p-2">
+      <div className="flex items-center justify-between  shadow-cyan-400 shadow-md rounded-md">
         <div className="flex items-center">
           {/* Logo */}
          
@@ -57,6 +57,7 @@ const Navbar = () => {
           <Link to="/portfolio-khushi/projects" className="text-white mr-4 hover:text-gray-300 md:mr-0 md:mb-0 mb-4 block md:p-4 hover:scale-110">Projects</Link>
           <Link to="/portfolio-khushi/skills" className="text-white mr-4 hover:text-gray-300 md:mb-0 mb-4 block md:p-4 hover:scale-110">Skills</Link>
           <Link to="/portfolio-khushi/certificates" className="text-white hover:text-gray-300 md:mb-0 mb-4 block md:p-4 hover:scale-110">Certificates</Link>
+          <Link to="/portfolio-khushi/contact" className="text-white hover:text-gray-300 md:mb-0 mb-4 block md:p-4 hover:scale-110">Contact</Link>
         </div>
       </div>
     </nav>

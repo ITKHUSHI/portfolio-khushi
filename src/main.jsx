@@ -6,6 +6,7 @@ import Home from './components/home'
 import Projects from './components/projects'
 import Skills from './components/skills';
 import Certificates from './components/certificates';
+import Contact from './components/contact.jsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 
@@ -30,6 +31,10 @@ const router=createBrowserRouter([
       {
         path:"/portfolio-khushi/certificates",
         element:<Certificates/>,
+      },
+      {
+        path:"/portfolio-khushi/contact",
+        element:<Contact/>,
       },
     ],
   },

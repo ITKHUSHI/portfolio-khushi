@@ -1,4 +1,4 @@
-[
+ const skills=[
 	{
 		
 		"skill":"HTML",
@@ -85,3 +85,4 @@
 	}
 	
 ]
+export default skills;
