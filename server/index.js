@@ -6,7 +6,7 @@ import 'dotenv/config';
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin:  process.env.ORIGIN || 'http://localhost:5173',
   credentials: true
 }));
 

@@ -1,5 +1,5 @@
 import React ,{useState} from 'react'
-import { sendContactForm } from '../../server/api/contactApi.js';
+import sendContactForm  from '../api/contactApi';
 
 
 function Contact() {

@@ -23,21 +23,21 @@ function Project() {
       <h2 className="text-2xl border-2xl border-b-indigo-400 font-semibold p-4 m-2 flex justify-center items-center">{data.title}</h2>
          <div className='w-full bg-blue-gray-50 h-96 lg:w-[75%] lg:h-[65%] lg:ml-32'>
           
-      <Carousel className="rounded-xl   lg:object-fill   ">
+      <Carousel className="rounded-xl   lg:object-fill bg-slate-950   ">
       <img
-        src={data.img}
+        src={data.img1}
         alt="image 1"
-        className=" w-full h-full   object-cover "
+        className=" w-[100%] h-[90%]  object-cover "
       />
       <img
-        src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+        src={data.img2}
         alt="image 2"
-        className="w-full h-full object-cover"
+        className=" w-[100%] h-[90%]  object-cover"
       />
       <img
-        src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
+        src={data.img3}
         alt="image 3"
-        className=" w-full h-full object-cover"
+        className="  w-[100%] h-[90%]  object-cover"
       />
     </Carousel>
 
