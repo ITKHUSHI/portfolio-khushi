@@ -91,7 +91,7 @@ body{
   -webkit-box-flex: 0;
   -ms-flex:0 0 48%;
   flex:0 0 48%;
-  max-width: 48%;
+  max-width: 108%;
 }
 @media (min-width: 1140px) {
   .container {
