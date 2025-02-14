@@ -9,18 +9,23 @@ module.exports = withMT({
   theme: {
     extend: {
       animation: {
-        "meteor-effect": "meteor 5s linear infinite",
+        bloom: "bloom 2s ease-out forwards",
+        growStem: "growStem 2s ease-in-out 1s forwards",    
+        rotate :"rotate 1s linear ",
+        progressLine:" animate 1.5s 0.5s cubic-bezier(1,0,0.5, 1) forwards"
+      
+      
       },
       keyframes:{
-        meteor: {
-          "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
-          "70%": { opacity: "1" },
-          "100%": {
-            transform: "rotate(215deg) translateX(-500px)",
-            opacity: "0",
-          },
+       
+        bloom: {
+          "0%": { transform: "scale(0)", opacity: "0" },
+          "100%": { transform: "scale(1)", opacity: "1" },
         },
-
+        growStem: {
+          "0%": { height: "0px", opacity: "0" },
+          "100%": { height: "100px", opacity: "1" },
+        },
       }
     },
   

@@ -2,6 +2,7 @@ import React ,{useState} from 'react'
 import sendContactForm  from '../api/contactApi';
 
 
+
 function Contact() {
 	const [formData , setFormData] = useState({
 		name:'',
@@ -29,9 +30,11 @@ function Contact() {
 	   };
   return (
 	<>
-	 <section className=" p-32 lg:p-0 bg-black  w-full h-full lg:h-[100vh]  ">
+	 <section className="  p-32 lg:p-0 bg-gradient-to-r from-blue-900 to-black  w-full h-full lg:h-[100vh]  ">
     <span className='flex justify-center items-center text-white text-2xl '><strong className='lg:m-12'>CONTACT ME</strong> </span>
-      <form onSubmit={handleSubmit} className="space-y-6 max-w-md mx-auto p-2">
+   
+      <form onSubmit={handleSubmit} className="space-y-6 max-w-md mx-auto p-2 ">
+        
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-white">
             Name
@@ -77,6 +80,7 @@ function Contact() {
           />
         </div>
         <div>
+          
           <label htmlFor="message" className="block text-sm font-medium text-white">
             Message
           </label>
@@ -99,6 +103,7 @@ function Contact() {
           </button>
         </div>
       </form>
+     
     </section>
 	</>
   )

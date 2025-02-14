@@ -10,8 +10,8 @@ const Navbar = () => {
 	  setIsMenuOpen(!isMenuOpen);
 	};
   return (
-    <nav className=" bg-black   p-2">
-      <div className="flex items-center justify-between  shadow-cyan-400 shadow-md rounded-md">
+    <nav className=" bg-black  p-2">
+      <div className="flex items-center justify-between   shadow-md rounded-md">
         <div className="flex items-center">
           {/* Logo */}
          

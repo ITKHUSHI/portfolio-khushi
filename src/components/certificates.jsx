@@ -5,33 +5,38 @@ import certificates from '../data/cerificates.data.js'
 
 
 function Certificates() {
-  return (
-	<>
-    <section className='h-full w-full bg-black flex justify-center items-center text-white'>
-		<div className='w-[90%] h-[90%] flex flex-col '>
-			<h2 className='flex justify-center items-center p-2 m-4 text-2xl font-bold ' >Certificates</h2>
-		{
-			certificates.map((data)=>(
-				<div className='h-64 w-full  p-2 rounded-lg flex  shadow-lg shadow-cyan-400 mb-8'>
-				<div className=' w-[85%] h-[90%] p-2 rounded-md lg:w-[20%] lg:h-[80%] shadow-md shadow-blue-gray-400 '>
-				<img src={data.img} alt="image not found" className='w-full h-full object-contain '  />
+	return (
+	  <>
+		<section className="h-full w-full bg-gradient-to-r from-black to-blue-900 flex justify-center items-center text-white py-10">
+		  <div className="w-[90%] lg:w-[80%] space-y-12">
+			<h2 className="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-400">
+			  Certificates
+			</h2>
+  
+			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+			  {certificates.map((data, index) => (
+				<div key={index} className="flex flex-col justify-between items-center group relative hover:scale-105 transition-transform duration-300 ease-in-out">
+				  <div className="w-full h-48 sm:h-56 md:h-64 p-2 bg-gradient-to-t from-gray-800 to-gray-600 rounded-xl shadow-lg overflow-hidden">
+					<img
+					  src={data.img}
+					  alt="Certificate"
+					  className="w-full h-full object-cover group-hover:opacity-80 transition-opacity duration-300"
+					/>
+				  </div>
+				  <div className="p-4 text-center mt-4">
+					<h3 className="text-xl font-semibold">{data.name}</h3>
+					<p className="text-sm text-gray-400">{data.organization}</p>
+					<p className="text-xs text-gray-300 mt-2">{data.date}</p>
+					<p className="text-sm text-gray-300 mt-2">{data.description}</p>
+				  </div>
 				</div>
-				<div className='p-3'>
-					<h2 className='text-xl font-bold text-white'>{data.name}</h2>
-					<p  className=' text-gray-300 text-sm ml-2' >{data.orgnization}</p>
-					<p className='text-gray-200 font-serif text-sm ml-2' >issued : {data.date}</p>
-					<p className='ml-2'>{data.description}</p>
-				</div>
+			  ))}
 			</div>
-			))
-		}
-			
-		</div>
-	</section>
-
-			
-	</>
-  )
-}
+		  </div>
+		</section>
+	  </>
+	);
+  }
+  
 
 export default Certificates

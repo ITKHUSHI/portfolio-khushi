@@ -11,7 +11,7 @@ body{
   margin: 0%;
   padding: 0%;
   box-sizing: border-box;
-  background-color: black;
+  /* background-color: black; */
 } 
 
 
@@ -37,6 +37,7 @@ body{
 }
 
 
+
 @keyframes rotate{
   0%{
     transform: rotate(0deg);
@@ -52,21 +53,7 @@ body{
     
   }
 }
-.slkilCards-animate{
-  animation: skillCard 1s linear ;
 
-}
-
-@keyframes skillCard{
-  0%{
-    opacity: 0;
-    transform: rotateY(0deg);
-  }
-  100%{
-    opacity: 1;
-    transform: rotateY(360deg);
-  }
-}
 
 .container{
   width: 100%;
@@ -165,3 +152,7 @@ body{
     transform: scaleX(1);
   }
 }
+
+
+
+

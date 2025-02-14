@@ -1,13 +1,16 @@
 const projects=[
 	
-		// {
+		{
 			
-		// 	title:"TravelWebsite",
-		// 	description:"Embark on a virtual journey with our Travel Website, where you can explore exotic destinations, marvel at stunning images, and dive into captivating descriptions of each place. Whether you dream of relaxing on pristine beaches or exploring vibrant cities, our website has it all. Powered by HTML, CSS, and JavaScript, our platform offers an immersive travel experience from the comfort of your home.",
-		// 	img1:"./images/travel.png",
-		// 	technologies:"HTML CSS JAVASCRIPT"
-
-		// },
+			title:"Employee Managment System",
+			description:"The Employee Management System is a web application built using the MERN stack (MongoDB, Express.js, React.js, Node.js) to efficiently manage employee data with role-based access control. It ensures secure access by differentiating between Admins and Employees. Admins have full control to create, update, delete, and manage employee records, while Employees can only view and edit their own profiles.",
+			img1:"./projects/emp1.png",
+			img2:"./projects/emp2.png",
+			img3:"./projects/emp3.png",
+			technologies: "JavaScript, MERN Stack (MongoDB, Express.js, React.js, Node.js), Tailwind CSS, Multer, JWT, bcrypt.js",
+		    repo:"https://github.com/ITKHUSHI/Employee-Management-System",
+			timeline: "Oct 2024 – Dec 2024",
+		},
 		{
 			
 			title:"Portfolio-Template",
@@ -18,7 +21,7 @@ const projects=[
 			technologies:"Next js, Aceternity UI , Responive, SEO ,NodeMailer , ",
 			repo: `https://github.com/ITKHUSHI/create-portfolio`,
 			webSite:`https://itkhushi.github.io/create-portfolio/`,
-
+			timeline: "jun 2024 ",
 		},
 		{
 			
