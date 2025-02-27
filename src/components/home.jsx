@@ -1,36 +1,30 @@
 import React from 'react';
-import khushiImage from '/images/khushi.png';
 import { TextGenerateEffect } from "../components/ui/text-generate-effect.jsx";
 import FlowerAnimation from './ui/FlowerAnimation.jsx';
+import {Girl, Flower } from '../components/spline.jsx';
+
 const Home = () => {
   const words = "Hello, I'm Khushi Rathore! 👋";
 
   return (
-    <main className="bg-gradient-to-r from-blue-900 to-black text-white overflow-hidden ">
+    <main className="bg-gradient-to-r from-blue-900 to-black text-white overflow-hidden">
       
       {/* 🚀 Hero Section */}
-      <header className="relative h-screen flex flex-col items-center justify-center text-center px-6 md:px-12 ">
-        {/* Background Overlay */}
+      <header className="relative h-screen flex flex-col items-center justify-center text-center px-6 md:px-12">
+  <div className="relative z-2 top-40 items-center justify-center">
+   
+    
+    <h1 className="mt-6 text-3xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-600">
+      <TextGenerateEffect words={words} />
+    </h1>
 
-        {/* Content */}
-        <div className="relative z-10  ">
-          <img
-            src={khushiImage}
-            alt="Khushi Rathore"
-            className="w-48 h-48 md:w-60 md:h-60 object-cover p-2 m-4 rounded-full mx-auto border-4 border-white shadow-lg transition-transform transform hover:scale-110"
-          />
-          <h1 className="mt-6 text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-600">
-            <TextGenerateEffect words={words} />
-          </h1>
-          <p className="mt-4 text-lg md:text-xl sm:max-w-xl mx-auto opacity-90 p-2 m-4">
-          I want to work with innovative teams to develop essential software while contributing to projects that bring real-world improvements. We ought to perform as innovative forces to create a new future.                 
-          </p>
-        </div>
-        <FlowerAnimation/>
+    <p className="mt-4 text-lg md:text-xl max-w-lg mx-auto opacity-90 px-4">
+      I want to work with innovative teams to develop essential software while contributing to projects that bring real-world improvements.
+    </p>
+  </div>
+  <FlowerAnimation />
+</header>
 
-      </header>
-
-      {/* ✨ About Me Section */}
       <section className="py-20 px-8 md:px-16 bg-gradient-to-l from-blue-900 to-black text-white flex flex-col md:flex-row items-center">
         {/* Left Side - Text Content */}
         <div className="w-full md:w-1/2 text-center md:text-left">
@@ -61,15 +55,9 @@ const Home = () => {
 
 
         </div>
-
-        {/* Right Side - Image */}
-        <div className="w-full md:w-1/2 flex justify-center  mt-10 md:mt-0 ">
-          <img
-            src={khushiImage}
-            alt="Khushi Rathore"
-            className="w-80 md:w-[400px] h-auto object-cover rounded-lg shadow-xl transform transition-transform hover:scale-105"
-          />
-
+        
+<div className="md:w-[550px] h-[550px] flex justify-end mt-10 md:mt-0">
+          <Flower />
         </div>
       </section>
 
@@ -116,7 +104,10 @@ const Home = () => {
 
       
     </main>
+     
   );
 };
+
+
 
 export default Home;
