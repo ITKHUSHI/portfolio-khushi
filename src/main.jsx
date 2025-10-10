@@ -2,13 +2,47 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
+import Home from './components/home'
+import Projects from './components/projects'
+import Skills from './components/skills';
+import Certificates from './components/certificates';
+import Contact from './components/contact.jsx'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 
 
-
+const router=createBrowserRouter([
+  {
+    path:"/portfolio-khushi/",
+    element:<App/>,
+    children:[
+      {
+        path:"/portfolio-khushi/",
+        element:<Home/>,
+      },
+      {
+        path:"/portfolio-khushi/projects",
+        element:<Projects/>,
+      },
+      {
+        path:"/portfolio-khushi/skills",
+        element:<Skills/>,
+      },
+      {
+        path:"/portfolio-khushi/certificates",
+        element:<Certificates/>,
+      },
+      {
+        path:"/portfolio-khushi/contact",
+        element:<Contact/>,
+      },
+    ],
+  },
+  
+ ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App/>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );

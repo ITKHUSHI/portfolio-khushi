@@ -6,7 +6,6 @@ import Contact from '../components/contact'
 import Certificates from '../components/certificates'
 import { FaProjectDiagram, FaCode, FaUser, FaCertificate, FaEnvelope  , FaGithub , FaLinkedin} from 'react-icons/fa';
 import { Link } from 'react-router-dom'
-import Footer from './Footer'
 function Home() {
   const [activePopup, setActivePopup] = useState(null)
 
