@@ -1,46 +1,60 @@
-import React from "react";
-import skills from "../data/skills.data.js";
-import "../index.css"
+import React, { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
 
-function Skills() {
-  return (
-    <>
-      <section className="skills-section py-10 bg-gradient-to-r from-black to-blue-900 text-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center  mb-8">
-            Skills
-          </h2>
-          <div  className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 ">
-            {skills.map((data, index) => (
-              <div key={index} className="skill-item group relative flex flex-col items-center justify-center p-4 rounded-xl  bg-gradient-to-r from-cyane-900 to-blue-gray-900 shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out ">
-                <div className="icon w-16 h-16 flex justify-center items-center bg-gradient-to-r from-teal-400 to-blue-400 rounded-full mb-4 ">
-                  <svg
-                    xmlns={data.xmlns}
-                    viewBox={data.viewBox}
-                    className="h-12 w-12 text-white"
-                  >
-                    <path fill={data.fill} d={data.d} />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold">{data.skill}</h3>
-                <div className="w-full mt-4">
-                  <div className="skill-progress w-full bg-gray-600 rounded-full h-2">
-                    <div
-                      className="progress-bar bg-teal-500 rounded-full h-full"
-                      style={{ width: data.proficiency }}
-                    ></div>
-                  </div>
-                </div>
-                <p className="absolute top-2 right-2 text-xs text-gray-300">{data.proficiency}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    </>
-  );
+
+const commands = [
+'whoami',
+'skills',
+'experience',
+'tools'
+]
+
+
+export default function Skills() {
+const [output, setOutput] = useState([])
+const [line, setLine] = useState(0)
+
+
+useEffect(() => {
+let mounted = true
+async function run() {
+for (let i = 0; i < commands.length && mounted; i++) {
+const cmd = commands[i]
+setOutput(prev => [...prev, { type: 'cmd', text: `> ${cmd}` }])
+await new Promise(r => setTimeout(r, 700))
+if (!mounted) break
+if (cmd === 'whoami') {
+setOutput(prev => [...prev, { type: 'res', text: 'Khushi Rathore - MERN Developer' }])
+} else if (cmd === 'skills') {
+setOutput(prev => [...prev, { type: 'res', text: 'JavaScript | React | Node | Express | MongoDB | Tailwind | Framer Motion' }])
+} else if (cmd === 'experience') {
+setOutput(prev => [...prev, { type: 'res', text: '1+ years building full-stack web apps, real-time systems, and MLP APIs' }])
+} else {
+setOutput(prev => [...prev, { type: 'res', text: 'VSCode | Git |  Vercel | Firebase' }])
 }
+await new Promise(r => setTimeout(r, 500))
+}
+}
+run()
+return () => { mounted = false }
+}, [])
 
 
-
-export default Skills;
+return (
+<div className="terminal p-6 rounded-2xl mt-10 max-w-3xl mx-auto">
+<div className="flex items-center gap-2 mb-4">
+<span className="w-3 h-3 rounded-full bg-red-500" />
+<span className="w-3 h-3 rounded-full bg-yellow-400" />
+<span className="w-3 h-3 rounded-full bg-green-500" />
+<div className="ml-auto text-xs text-gray-400">MERN · JavaScript · Frontend</div>
+</div>
+<div className="font-mono text-sm text-green-200">
+{output.map((o, idx) => (
+<motion.div key={idx} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} className={o.type === 'cmd' ? 'text-green-300' : 'text-gray-200'}>
+{o.text}
+</motion.div>
+))}
+</div>
+</div>
+)
+}

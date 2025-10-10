@@ -1,145 +1,118 @@
-import React from 'react';
-import projectsData from "../data/project.data.js";
-import { motion } from "framer-motion";
-import { Link } from 'react-router-dom';
-import { useInView } from "react-intersection-observer";
-import SparklesCore from '../components/ui/sparkles.jsx';
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
+import projects from '../data/project.data'
+import { Link } from 'react-router-dom'
+import { FaProjectDiagram ,FaEye } from 'react-icons/fa'
 
-function Project() {
-  
+const Projects = () => {
+  const [open, setOpen] = useState(null)
+
+  const handleOpen = (id) => setOpen(id)
+  const handleClose = () => setOpen(null)
+
+  const selectedProject = projects.find(x => String(x.id) === String(open))
+
   return (
-    <>
+    <section id="projects" className="px-6 py-12 bg-gray-950 text-white min-h-screen">
+      <h2 className="text-3xl font-semibold mb-8 text-center">Projects</h2>
 
-
-  <main className="bg-black w-full h-full py-10 bg-gradient-to-r from-black to-blue-900">
-  <h2 className="text-white text-center font-extrabold text-xl m-2 p-2 pt-2">Projects</h2>
-    
-  <div className="relative w-full max-w-7xl mx-auto">
-    {/* Vertical Timeline Line */}
-    
-<SparklesCore
-        id="tsparticlesfullpage"
-        background="transparent"
-        minSize={1.6}
-        maxSize={2.4}
-        particleDensity={100}
-        className="absolute inset-0 w-full h-full"
-        particleColor="#FFFFFF"
-      />
-    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 bg-gray-500 h-full"></div>
- 
-    {/* Animated Meteors */}
-    {[...Array(4)].map((_, i) => (
-      <div
-        key={i}
-        className="absolute w-4 h-4 bg-cyan-400 rounded-full animate-meteor-effect"
-        style={{
-          top: `${(i + 1) * 20}%`,
-          left: "calc(50% - 8px)",
-          animationDelay: `${i * 1.5}s`,
-        }}
-      ></div>
-    ))}
-
-    {/* Project Timeline */}
-    {projectsData.map((data, index) => {
-      const { ref, inView } = useInView({
-        threshold: 0.2,
-      });
-
-      return (
-        <motion.div
-          key={index}
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: index * 0.2 }}
-          className={`relative flex ${
-            index % 2 === 0 ? "justify-start" : "justify-end"
-          } mb-12`}
-        >
-          {/* Timeline Dot */}
-          <div
-            className={`absolute w-6 h-6 bg-cyan-400 rounded-full border-4 border-black transform ${
-              index % 2 === 0 ? "-left-3" : "-right-3"
-            }`}
-          ></div>
-
-          {/* Project Content */}
-          <div
-            className={`flex flex-col justify-center items-start max-w-2xl p-4 ${
-              index % 2 === 0 ? "ml-10" : "mr-10"
-            } bg-gradient-to-r from-black to-gray-900 text-white rounded-lg shadow-md ${
-              inView ? "opacity-100" : "opacity-60"
-            }`}
+      <ul className="space-y-4 max-w-md mx-auto">
+        {projects.map((p) => (
+          <motion.li
+            key={p.id}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: 'spring', stiffness: 200 }}
+            className=" rounded-lg p-4 shadow-md flex items-center justify-between"
           >
-            {/* Project Images */}
-            <div className="flex gap-2 mb-4">
-              {[data.img1, data.img2, data.img3].map(
-                (img, imgIndex) =>
-                  img && (
-                    <img
-                      key={imgIndex}
-                      src={img}
-                      alt={`Project ${index + 1} - Image ${imgIndex + 1}`}
-                      className="w-1/3 sm:h-24 lg:h-auto p-4 object-cover rounded-lg"
-                    />
-                  )
-              )}
+            <span className="font-semibold m-2 flex gap-2 items-center justify-center">
+              <FaProjectDiagram/>{p.title}</span>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => handleOpen(p.id)}
+                className="px-3 py-1 rounded-md  text-sm text-blue-500 font-semibold flex  items-center justify-center gap-2"
+              >
+               <FaEye/> View
+              </button>
+              <Link
+                to={p.repo}
+                target="_blank"
+                rel="noreferrer"
+                className="text-sm font-bold text-blue-500 underline"
+              >
+               {"</>"} Code
+              </Link>
             </div>
+          </motion.li>
+        ))}
+      </ul>
 
-            {/* Project Title */}
-            <h3 className="text-xl font-bold text-center mb-2">{data.title}</h3>
-
-            {/* Project Description */}
-            <p className="text-sm text-gray-300 mb-4">{data.description}</p>
-
-            {/* Project Technologies */}
-            <p className="text-sm font-semibold text-gray-200 mb-4">
-              <strong>Technologies: </strong>{data.technologies}
-            </p>
-
-            {/* GitHub and Website Links */}
-            <div className="flex flex-col gap-4">
-              {data.repo && (
-                <Link
-                  to={data.repo}
-                  className="text-blue-500 hover:underline text-sm"
-                  target='_blank'
-                >
-                  GitHub: {data.repo}
-                </Link>
-              )}
-              {data.webSite && (
-                <Link
-                target='_blank'
-                  to={data.webSite}
-                  className="text-blue-500 hover:underline text-sm"
-                >
-                  Website: {data.webSite}
-                </Link>
-              )}
-            </div>
-
-            {/* Timeline */}
-            {data.timeline && (
-              <h3 className="text-sm text-white mt-4">
-                <strong>Timeline: </strong>{data.timeline}
-              </h3>
-            )}
-          </div>
-        </motion.div>
-      );
-    })}
-  </div>
-</main>
-
-
-
-
-    </>
-  );
+      {selectedProject && <ProjectPopup project={selectedProject} handleClose={handleClose} />}
+    </section>
+  )
 }
 
-export default Project
-    
+function ProjectPopup({ project, handleClose }) {
+  console.log(project)
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center ">
+      {/* Dark overlay */}
+      <div className="absolute inset-0  backdrop-blur-sm" onClick={handleClose} />
+
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.2 }}
+        className="relative w-[90%] md:w-[75%] lg:w-[60%]  rounded-2xl overflow-hidden shadow-2xl border border-gray-800"
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between p-4 border-b border-gray-800">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded bg-gray-800 flex items-center justify-center text-sm font-bold">
+              {project.title[0]}
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg ">{project.title}</h3>
+              <p className="text-xs text-gray-400">{project.technologies}</p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <Link
+              to={project?.webSite}
+              target="_blank"
+              rel="noreferrer"
+              className="px-3 py-1 bg-gradient-to-r from-cyan-500 to-violet-500 text-black rounded-md text-sm font-semibold"
+            >
+              Live
+            </Link>
+            <button
+              onClick={handleClose}
+              className="px-3 py-1  rounded-md text-sm hover:bg-gray-700"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+
+        {/* Preview Section */}
+        <div className="h-[70vh]  flex items-center justify-center bg-black/50">
+          {project.webSite ? (
+            <iframe
+              src={project?.webSite }
+              title={project.title}
+              className="object-cover w-full h-full"
+              loading="lazy"
+            />
+          ) : (
+            <p className="text-gray-400 text-sm p-6">
+              Live preview unavailable. Click “Live” above to open in a new tab.
+            </p>
+          )}
+        </div>
+      </motion.div>
+    </div>
+  )
+}
+
+export default Projects
+

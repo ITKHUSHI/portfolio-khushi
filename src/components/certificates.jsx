@@ -1,42 +1,46 @@
-import React from 'react'
+import React, { useState } from "react";
+import certificates from "../data/cerificates.data"
+import { motion } from "framer-motion";
+import { FaCertificate } from "react-icons/fa";
 
-import certificates from '../data/cerificates.data.js'
+
+const Certificates = () => {
+const [open, setOpen] = useState(null);
+  return (
+    <section id="certificates">
+<h2 className="text-2xl font-semibold mb-6 mt-10 text-center items-center justify-center flex gap-2 "><FaCertificate/> Certificates & Badges</h2>
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6 m-10">
+{certificates.map(c => (
+<motion.div key={c.id} whileHover={{ scale: 1.03 }} className=" p-4  rounded-2xl justify-center cursor-pointer" onClick={() => setOpen(c)}>
+<div className="mt-3">
+<div className="font-semibold">{c.name}</div>
+<div className="text-xs text-gray-400">{c.organization}</div>
+</div>
+</motion.div>
+))}
+</div>
 
 
+{open && (
+<div className="fixed inset-0 z-40 flex items-center justify-center">
+<div className="absolute inset-0 bg-black/60" onClick={() => setOpen(null)} />
+<motion.div initial={{ y: 24, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="relative w-[90%] md:w-[70%] lg:w-[60%] bg-gray-900 p-6 rounded-2xl shadow-lg">
+<div className="flex justify-between items-start">
+<div>
+<h3 className="text-lg font-semibold">{open.title}</h3>
+<div className="text-xs text-gray-400">{open.issuer}</div>
+</div>
+<button onClick={() => setOpen(null)} className="px-3 py-1 rounded bg-gray-800">Close</button>
+</div>
+<div className="mt-4">
+<img src={open.img} alt={open.title} className="w-full h-[60vh] object-contain" />
+</div>
+</motion.div>
+</div>
+)}
+</section>
+  );
+};
 
-function Certificates() {
-	return (
-	  <>
-		<section className="h-full w-full bg-gradient-to-r from-black to-blue-900 flex justify-center items-center text-white py-10">
-		  <div className="w-[90%] lg:w-[80%] space-y-12">
-			<h2 className="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-400">
-			  Certificates
-			</h2>
-  
-			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-			  {certificates.map((data, index) => (
-				<div key={index} className="flex flex-col justify-between items-center group relative hover:scale-105 transition-transform duration-300 ease-in-out">
-				  <div className="w-full h-48 sm:h-56 md:h-64 p-2 bg-gradient-to-t from-gray-800 to-gray-600 rounded-xl shadow-lg overflow-hidden">
-					<img
-					  src={data.img}
-					  alt="Certificate"
-					  className="w-full h-full object-cover group-hover:opacity-80 transition-opacity duration-300"
-					/>
-				  </div>
-				  <div className="p-4 text-center mt-4">
-					<h3 className="text-xl font-semibold">{data.name}</h3>
-					<p className="text-sm text-gray-400">{data.organization}</p>
-					<p className="text-xs text-gray-300 mt-2">{data.date}</p>
-					<p className="text-sm text-gray-300 mt-2">{data.description}</p>
-				  </div>
-				</div>
-			  ))}
-			</div>
-		  </div>
-		</section>
-	  </>
-	);
-  }
-  
-
-export default Certificates
+export default Certificates;
