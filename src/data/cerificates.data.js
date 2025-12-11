@@ -3,7 +3,7 @@ const certificates = [
     name: "Gen AI Academy Completion Certificate",
     date: "Jun 2025",
     organization: "Google Cloud",
-	img:"https://certificate.hack2skill.com/user/genai3/2025H2S04GENAI-A300107?trk=public_profile_see-credential"
+	   url:"https://certificate.hack2skill.com/user/genai3/2025H2S04GENAI-A300107?trk=public_profile_see-credential"
   },
   {
     name: "Build Real World AI Applications with Gemini and Imagen",
