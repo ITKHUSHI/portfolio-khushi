@@ -9,13 +9,13 @@ const projects = [
     timeline: "Oct 2024 – Dec 2024",
   },
   {
-    id: 2,
-    title: "SmartCemAi",
-    description: "AI-powered platform for cement plant optimization. Predicts energy & CO₂ consumption, suggests improvements, and recommends fuel blends for efficiency.",
-    technologies: "Node.js, React.js, Tailwind CSS, Google Vertex AI, Generative AI",
-    repo: "https://github.com/ITKHUSHI/SmartCemAi",
-    webSite: `https://optimizing-cement-operations-with-uc6o.onrender.com/`,
-    timeline: "Sep 2025 – Present",
+   id: 2, 
+  title: "AutoFill360",
+  description: "Advanced document automation SaaS that transforms static PDFs into dynamic, mappable canvases. Enables instant bulk-filling of complex documents using dynamic data mapping and AI-driven background processing.",
+  technologies: "Node.js, React.js, MUI, Tailwind CSS, Express, Remove.bg AI, PDF.js",
+  repo: "https://github.com/ITKHUSHI/AutoFill360", 
+  webSite: "https://atautofill360.onrender.com/", 
+  timeline: "Nav 2026 – Present"
   },
   {
     id: 3,
