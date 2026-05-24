@@ -79,7 +79,8 @@ function Home() {
           transition={{ delay: 0.15 }}
           className="text-gray-300 text-lg md:text-xl"
         >
-           Build Impactful Applications Like <strong> Teamlify & SmartCemAi </strong>, Combining Performance, AI Integration, And Intuitive User Experiences For Real-World Solutions.
+           I Am A Full Stack <strong> Software Developer </strong> Currenty Working As Freelancer. I specialize In Designing The Architecture of Web Applications , And Building Powerful Administrative panels.
+           My Portfolio Includes Developing And Deploying Impactful Digital Products Such As Robosoftware , Mitra SMS and autoFill360. 
          </motion.p>
 
          
@@ -168,9 +169,16 @@ function About() {
       >
         <h2 className="text-3xl font-bold mb-4">About Me</h2>
         <p className="text-gray-300 text-lg mb-4">
-          Hi, I’m <strong>Khushi </strong>, a software developer specializing in  I build scalable and efficient web applications  
+          Hi, I’m <strong>Khushi </strong>, a software developer specializing in MERN Stack. I build scalable and efficient web applications  
           
-            with modern, responsive designs and clear, user-friendly interfaces. I have worked on projects like <strong> Teamlify,  SaaS platform, and SmartCemAi, </strong> a Generative AI-powered cement plant optimization tool. I enjoy creating solutions that solve real-world problems and make workflows smoother.
+            with modern, responsive designs and clear, user-friendly interfaces. I build products like <strong> RoboSoftware , Mitra SMS , autoFill360 </strong> I enjoy creating solutions that solve real-world problems and make workflows smoother.
+        </p>
+        <p>
+          App Links :
+          <br/>
+           <a href="https://play.google.com/store/apps/details?id=com.robo.robosoftware" target="_blank" rel="noreferrer" className="text-blue-400 hover:underline">RoboSoftware</a>,
+           <br/>
+           <a href="https://play.google.com/store/apps/details?id=com.robo.mitradealer" target="_blank" rel="noreferrer" className="text-blue-400 hover:underline">Dealer</a>,
         </p>
         <div className="flex gap-4 mt-2">
           <Link
