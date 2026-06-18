@@ -14,7 +14,13 @@ const Certificates = () => {
       </h2>
 
       {/* CERTIFICATES GRID */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 m-10">
+      <div 
+        className=" md:grid md:grid-cols-3 md:gap-6 md:mb-10   relative overflow-y-auto max-h-[60vh] pb-12  [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        initial={{ x: -50, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        layoutScroll
+        >
         {certificates.map((c) =>
           c.url ? (
             /** ✔ CASE 1: Certificate has a url → Open in new tab */

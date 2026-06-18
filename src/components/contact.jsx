@@ -31,10 +31,10 @@ function Contact() {
 	   };
   return (
 	<>
-	 <section className=" p-2  w-full h-full  gap-4 lg:gap-0 flex flex-col justify-center items-center ">
+	 <section className=" p-2  w-full h-full  gap-4 lg:gap-0 flex flex-col justify-center items-center  max-h-[60vh]  ">
      
-    <span className='flex justify-center items-center text-white text-2xl '><strong className='lg:m-12'>CONTACT ME</strong> </span>
-    <div className="flex gap-4">
+    <span className='flex justify-center items-center text-white text-2xl '><strong className='lg:m-12 m-2'>CONTACT ME</strong> </span>
+    <div className="flex gap-4 flex-col lg:flex-row justify-center items-center">
               <Link
                 to="https://github.com/ITKHUSHI" 
                 target="_blank" 

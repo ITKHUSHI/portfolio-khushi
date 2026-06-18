@@ -13,7 +13,14 @@ const Projects = () => {
   const selectedProject = projects.find(x => String(x.id) === String(open))
 
   return (
-    <section id="projects" className="px-6 py-12 bg-gray-950 text-white min-h-screen">
+    <section id="projects" 
+    // className="px-6 py-12 bg-gray-950 text-white min-h-screen"
+      className="relative overflow-y-auto max-h-[60vh] pb-12 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        initial={{ x: -50, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        layoutScroll
+    >
       <h2 className="text-3xl font-semibold mb-8 text-center">Projects</h2>
 
       <ul className="space-y-4 max-w-md mx-auto">
@@ -22,7 +29,7 @@ const Projects = () => {
             key={p.id}
             whileHover={{ scale: 1.05 }}
             transition={{ type: 'spring', stiffness: 200 }}
-            className=" rounded-lg p-4 shadow-md flex items-center justify-between"
+            className=" rounded-lg p-4 shadow-md flex items-center justify-between flex-col sm:flex-row"
           >
             <span className="font-semibold m-2 flex gap-2 items-center justify-center">
               <FaProjectDiagram/>{p.title}</span>

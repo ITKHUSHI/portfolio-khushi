@@ -13,11 +13,11 @@ function Home() {
   const closePopup = () => setActivePopup(null)
 
   return (
-    <div className="min-h-screen bg-gray-950 justify-center items-center text-white flex flex-row">
+    <div className="min-h-screen bg-gray-950 justify-center items-center text-white flex flex-row pl-4 sm:pl-0 ">
       {/* Left Sidebar Buttons */}
      
       <aside className="w-[30vw] flex flex-col gap-6 justify-center items-center md:min-h-screen">
-  <div className="flex flex-col gap-6 items-center">
+  <div className="flex flex-col gap-6 items-center ">
     <div
       className="flex flex-col items-center cursor-pointer group"
       onClick={() => openPopup('projects')}
@@ -60,14 +60,13 @@ function Home() {
   </div>
 </aside>
       {/* Main Content / Hero */}
-      <main className=" flex flex-col  justify-center items-center text-center px-6 py-12 flex-grow">
+      <main className=" flex flex-col items-start sm:justify-center sm:items-center sm:text-center px-6 py-12 flex-grow">
         <motion.h1
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-extrabold mb-4"
         >
-          Hi, I’m{' '}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300">
             Khushi Rathore
           </span>
@@ -79,9 +78,8 @@ function Home() {
           transition={{ delay: 0.15 }}
           className="text-gray-300 text-lg md:text-xl"
         >
-           I Am A Full Stack <strong> Software Developer </strong> Currenty Working As Freelancer. I specialize In Designing The Architecture of Web Applications , And Building Powerful Administrative panels.
-           My Portfolio Includes Developing And Deploying Impactful Digital Products Such As Robosoftware , Mitra SMS and autoFill360. 
-         </motion.p>
+          Software Developer | Automation Engineer I build scalable, high-utility software ecosystems that transform manual business workflows into automated digital operations. As a MERN stack specialist, my expertise lies in designing robust shared-database architectures and secure administrative backends that power multi-app networks.
+        </motion.p>
 
          
       </main>
@@ -162,16 +160,31 @@ function About() {
   return (
      <div className="flex flex-col md:flex-row justify-center items-center ">
       <motion.div
-        className=""
+        className="relative overflow-y-auto max-h-[60vh] pb-12 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         initial={{ x: -50, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
+        layoutScroll
       >
         <h2 className="text-3xl font-bold mb-4">About Me</h2>
         <p className="text-gray-300 text-lg mb-4">
-          Hi, I’m <strong>Khushi </strong>, a software developer specializing in MERN Stack. I build scalable and efficient web applications  
-          
-            with modern, responsive designs and clear, user-friendly interfaces. I build products like <strong> RoboSoftware , Mitra SMS , autoFill360 </strong> I enjoy creating solutions that solve real-world problems and make workflows smoother.
+          Software Developer | Automation Engineer I build scalable, high-utility software ecosystems that transform manual business workflows into automated digital operations. As a MERN stack specialist, my expertise lies in designing robust shared-database architectures and secure administrative backends that power multi-app networks.
+          <br/>
+          <br/>
+          My Core Products & Contributions:AutoFill360 (Founder & Owner) : A proprietary browser automation utility with an active user base of 10+ clients. It parses and maps data directly from PDFs into target portals.
+          <br/>
+          <br/>
+          The Tri-App Unified Ecosystem :  Served as the core MERN Developer responsible for architecting a single, centralized backend database powering three distinct client-facing.
+          <br/>
+          <br/>
+           Flutter applications : 
+           <br/>
+           
+          MitraSMS: A lead-conversion automation tool scaling at 100+ active users.
+           <br/>
+          RoboSoftware: A bulk CSV data-import suite helping LIC agents digitize policy management.
+           <br/>
+          Dealer App: A specialized operations application synced to the same shared database core.
         </p>
         <p>
           App Links :
